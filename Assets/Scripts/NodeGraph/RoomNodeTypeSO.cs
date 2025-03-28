@@ -35,4 +35,14 @@ public class RoomNodeTypeSO : ScriptableObject
     #endregion Header
     public bool isNone;
 
+    #region Validation
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        HelperUltilities.ValidateCheckEmptyString(this, nameof(roomNodeTypeName), roomNodeTypeName);
+    }
+#endif
+
+    #endregion Validation
+
 }
